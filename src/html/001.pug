@@ -7,7 +7,9 @@
 include ./_article.pug
 
 +article
-  p only put two circles.
-  svg(width="400", height="400")
-    circle(cx="50%", cy="50%", r="45%", stroke="#333333", stroke-width="5%", fill="#ff9999")
-    circle(cx="50%", cy="50%", r="25%", stroke="#333333", stroke-width="5%", fill="#99ff99")
+  p.c-article__summary
+    |only put two circles.
+  .c-article__svg
+    svg(width="500", height="500")
+      circle(cx="50%", cy="50%", r="45%", stroke="#333333", stroke-width="5%", fill="#ff9999")
+      circle(cx="50%", cy="50%", r="25%", stroke="#333333", stroke-width="5%", fill="#99ff99")
