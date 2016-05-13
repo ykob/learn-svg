@@ -1,0 +1,13 @@
+mixin article()
+  doctype html
+  html(lang="ja")
+    head
+      include ./modules/_head.pug
+    body.index
+      .l-page
+        include ./modules/_l-gh.pug
+        .c-article
+          h1 #{meta_title}
+          block
+        include ./modules/_l-gf.pug
+      include ./modules/_script.pug

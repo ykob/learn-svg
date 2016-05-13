@@ -1,0 +1,13 @@
+- var meta_title = 'basis of svg tag';
+- var meta_keywords = '';
+- var meta_description = 'aaa';
+- var meta_path = "";
+- var meta_ogp_img = "ogp.jpg";
+
+include ./_article.pug
+
++article
+  p only put two circles.
+  svg(width="400", height="400")
+    circle(cx="50%", cy="50%", r="45%", stroke="#333333", stroke-width="5%", fill="#ff9999")
+    circle(cx="50%", cy="50%", r="25%", stroke="#333333", stroke-width="5%", fill="#99ff99")
