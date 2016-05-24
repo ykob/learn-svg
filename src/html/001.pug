@@ -1,14 +1,11 @@
 - var meta_title = 'basis of svg tag';
-- var meta_keywords = '';
-- var meta_description = 'aaa';
-- var meta_path = "";
-- var meta_ogp_img = "ogp.jpg";
+- var meta_description = 'only put two circles.';
 
 include ./_article.pug
 
 +article
   p.c-article__summary
-    |only put two circles.
+    |#{meta_description}
   .c-article__svg
     svg(width="500", height="500")
       circle(cx="50%", cy="50%", r="45%", stroke="#333333", stroke-width="5%", fill="#ff9999")
