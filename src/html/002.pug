@@ -1,0 +1,12 @@
+- var meta_title = 'basis of svg tag 2';
+- var meta_description = 'put various shapes.';
+
+include ./_article.pug
+
++article
+  p.c-article__summary
+    |#{meta_description}
+  .c-article__svg
+    svg(width="500", height="500")
+      ellipse(cx="50%", cy="50%", rx="45%", ry="15%", stroke="#333333", stroke-width="2%", fill="#ff9999")
+      line(x1="0%", y1="0%", x2="100%", y2="100%", stroke="#333333", stroke-width="2%")
