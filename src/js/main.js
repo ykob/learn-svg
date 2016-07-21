@@ -1,11 +1,11 @@
-import initIndex from './init/index.js'
+import init004 from './init/004.js'
 
 const { pathname } = window.location;
 
 const init = () => {
-  switch (pathname.replace('index.html', '')) {
+  switch (pathname.replace('004.html', '')) {
     case '/':
-      initIndex();
+      init004();
       break;
     default:
   }

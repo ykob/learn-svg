@@ -1,0 +1,16 @@
+- var meta_title = 'draw circle';
+- var meta_description = 'draw by bezier curve.';
+
+include ./_article.pug
+
++article
+  p.c-article__summary
+    |#{meta_description}
+  .c-article__svg
+    svg(width="500", height="500")
+      path(
+        stroke = "#333",
+        stroke-width = "20px",
+        fill = "none",
+        d = "M 250,10 C 380,10 490,120, 490,250 C 490,380 380,490, 250,490 C 120,490 10,380 10,250 C 10,120 120,10, 250,10"
+      )
