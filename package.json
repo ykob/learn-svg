@@ -34,5 +34,8 @@
     "run-sequence": "^1.1.5",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "gl-matrix": "^2.3.2"
   }
 }
