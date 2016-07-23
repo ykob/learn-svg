@@ -6,54 +6,54 @@ export default function() {
   class Transformer {
     constructor() {
       const center = 250;
-      const radius = 150;
+      const radius = 200;
       const border_width = 20;
       const kappa = 0.5522848;
 
       this.time = 0;
       this.current_num = 0;
-      this.path = document.getElementById('transformer-path');
+      this.path = document.getElementById('svg-mask-path');
       this.position = [
         [
-          center, center - radius,
+          center, center - radius * 0.8,
 
-          center + radius * kappa, center - radius,
-          center + radius, center - radius * kappa,
-          center + radius, center,
+          center + radius * 0.8 * kappa, center - radius * 0.8,
+          center + radius * 0.8, center - radius * 0.8 * kappa,
+          center + radius * 0.8, center,
 
-          center + radius, center + radius * kappa,
-          center + radius * kappa, center + radius,
-          center, center + radius,
+          center + radius * 0.8, center + radius * 0.8 * kappa,
+          center + radius * 0.8 * kappa, center + radius * 0.8,
+          center, center + radius * 0.8,
 
-          center - radius * kappa, center + radius,
-          center - radius, center + radius * kappa,
-          center - radius, center,
+          center - radius * 0.8 * kappa, center + radius * 0.8,
+          center - radius * 0.8, center + radius * 0.8 * kappa,
+          center - radius * 0.8, center,
 
-          center - radius, center - radius * kappa,
-          center - radius * kappa, center - radius,
-          center, center - radius,
+          center - radius * 0.8, center - radius * 0.8 * kappa,
+          center - radius * 0.8 * kappa, center - radius * 0.8,
+          center, center - radius * 0.8,
         ],
         [
-          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)) + 40,
 
-          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
-          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
-          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)) + 40,
+          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)) + 40,
+          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)) + 40,
 
-          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
-          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2,
-          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2,
-          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2,
-          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2,
+          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)) + 40,
+          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2 + 40,
+          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2 + 40,
+          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2 + 40,
+          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2 + 40,
 
-          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2,
-          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2,
-          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
-          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
+          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2 + 40,
+          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2 + 40,
+          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)) + 40,
+          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)) + 40,
 
-          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
-          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
-          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)) + 40,
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)) + 40,
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)) + 40,
         ],
         [
           center + radius * Math.cos(Util.getRadian(-135)), center + radius * Math.sin(Util.getRadian(-135)),
@@ -137,6 +137,23 @@ export default function() {
         this.current_num = 0;
       }
       this.anchor = this.position[this.current_num].concat();
+      switch (this.current_num) {
+        case 0:
+          $('#svg-background').css('fill', '#cc6666');
+          $('.c-article__svg').css('backgroundImage', 'url("https://c2.staticflickr.com/8/7145/13663742003_2096962b3a_c.jpg")');
+          break;
+        case 1:
+          $('#svg-background').css('fill', '#99cc66');
+          $('.c-article__svg').css('backgroundImage', 'url("https://c2.staticflickr.com/8/7039/14096679536_72644c7ea0_c.jpg")');
+          break;
+        case 2:
+          $('#svg-background').css('fill', '#6699cc');
+          $('.c-article__svg').css('backgroundImage', 'url("https://c2.staticflickr.com/6/5527/14370696871_c3a5c186ea_c.jpg")');
+          break;
+        default:
+          break;
+      }
+
     }
   }
 
