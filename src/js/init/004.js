@@ -41,14 +41,17 @@ export default function() {
           center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
 
           center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
+          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2,
+          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2,
+          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2,
+          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2,
+
+          (center * 2 + radius * Math.cos(Util.getRadian(30)) + radius * Math.cos(Util.getRadian(150))) / 2,
+          (center * 2 + radius * Math.sin(Util.getRadian(30)) + radius * Math.sin(Util.getRadian(150))) / 2,
           center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
           center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
 
           center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
-          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
-          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
-
-          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
           center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
           center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
         ],
@@ -128,18 +131,19 @@ export default function() {
       }
       this.path.setAttribute('d', path_str);
     }
-  }
-
-  $(window).on('click', () => {
-    transformer.current_num++;
-    if (transformer.current_num > transformer.position.length - 1) {
-      transformer.current_num = 0;
+    changePath() {
+      this.current_num++;
+      if (this.current_num > this.position.length - 1) {
+        this.current_num = 0;
+      }
+      this.anchor = this.position[this.current_num].concat();
     }
-    transformer.anchor = transformer.position[transformer.current_num].concat();
-  });
+  }
 
   const transformer = new Transformer();
   let time_past = Date.now();
+  let timer = null;
+
   const render = () => {
     const time = Date.now();
     transformer.time += time - time_past;
@@ -150,5 +154,13 @@ export default function() {
     render();
     requestAnimationFrame(renderLoop);
   }
+  const setTimerForChangePath = () => {
+    timer = setTimeout(() => {
+      transformer.changePath();
+      setTimerForChangePath();
+    }, 2000);
+  }
+
   renderLoop();
+  setTimerForChangePath();
 };
