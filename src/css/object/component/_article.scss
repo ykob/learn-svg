@@ -1,5 +1,8 @@
 .c-article {
   &__svg {
-    text-align: center;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    background-image: url('/img/img01.jpg');
   }
 }

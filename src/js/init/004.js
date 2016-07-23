@@ -34,23 +34,23 @@ export default function() {
           center, center - radius,
         ],
         [
-          center + 1.2 * radius * Math.cos(Util.getRadian(-90)), center + 1.2 * radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
 
-          center + 1.2 * radius * Math.cos(Util.getRadian(-90)), center + 1.2 * radius * Math.sin(Util.getRadian(-90)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(30)), center + 1.2 * radius * Math.sin(Util.getRadian(30)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(30)), center + 1.2 * radius * Math.sin(Util.getRadian(30)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
+          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
 
-          center + 1.2 * radius * Math.cos(Util.getRadian(30)), center + 1.2 * radius * Math.sin(Util.getRadian(30)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(150)), center + 1.2 * radius * Math.sin(Util.getRadian(150)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(150)), center + 1.2 * radius * Math.sin(Util.getRadian(150)),
+          center + radius * Math.cos(Util.getRadian(30)), center + radius * Math.sin(Util.getRadian(30)),
+          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
+          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
 
-          center + 1.2 * radius * Math.cos(Util.getRadian(150)), center + 1.2 * radius * Math.sin(Util.getRadian(150)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(-90)), center + 1.2 * radius * Math.sin(Util.getRadian(-90)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(-90)), center + 1.2 * radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(150)), center + radius * Math.sin(Util.getRadian(150)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
 
-          center + 1.2 * radius * Math.cos(Util.getRadian(-90)), center + 1.2 * radius * Math.sin(Util.getRadian(-90)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(-90)), center + 1.2 * radius * Math.sin(Util.getRadian(-90)),
-          center + 1.2 * radius * Math.cos(Util.getRadian(-90)), center + 1.2 * radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
+          center + radius * Math.cos(Util.getRadian(-90)), center + radius * Math.sin(Util.getRadian(-90)),
         ],
         [
           center + radius * Math.cos(Util.getRadian(-135)), center + radius * Math.sin(Util.getRadian(-135)),

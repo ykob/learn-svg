@@ -8,8 +8,18 @@ include ./_article.pug
     |#{meta_description}
   .c-article__svg
     svg(width="500", height="500")
-      path(
-        id = 'transformer-path'
-        fill = "#333",
-        d = ''
+      defs
+        mask#mask
+          rect(
+            x="0" y="0" width="500" height="500",
+            fill = "white"
+          )
+          path(
+            id = 'transformer-path',
+            fill = "black",
+            d = ''
+          )
+      rect(
+        x="0" y="0" width="500" height="500",
+        mask = "url(#mask)",
       )
