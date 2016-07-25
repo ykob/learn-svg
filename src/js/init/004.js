@@ -10,9 +10,11 @@ export default function() {
       const border_width = 20;
       const kappa = 0.5522848;
 
+      this.$svg_bg = $('#svg-background');
+      this.$svg_mask_path = $('#svg-mask-path');
+      this.$svg_wrap = $('#svg-wrap');
       this.time = 0;
       this.current_num = 0;
-      this.path = document.getElementById('svg-mask-path');
       this.position = [
         [
           center, center - radius * 0.8,
@@ -91,7 +93,7 @@ export default function() {
           this.acceleration[i + 0],
           this.acceleration[i + 1]
         ];
-        const v = 0.1;
+        const v = 0.2;
         const drag = [
           acceleration[0] * -1,
           acceleration[1] * -1
@@ -129,7 +131,7 @@ export default function() {
           ${current_position[i + 5]}
         `;
       }
-      this.path.setAttribute('d', path_str);
+      this.$svg_mask_path.attr('d', path_str);
     }
     changePath() {
       this.current_num++;
@@ -139,21 +141,20 @@ export default function() {
       this.anchor = this.position[this.current_num].concat();
       switch (this.current_num) {
         case 0:
-          $('#svg-background').css('fill', '#cc6666');
-          $('.c-article__svg').css('backgroundImage', 'url("https://c2.staticflickr.com/8/7145/13663742003_2096962b3a_c.jpg")');
+          this.$svg_bg.css('fill', '#cc6666');
+          this.$svg_wrap.css('backgroundImage', 'url("https://c2.staticflickr.com/8/7145/13663742003_2096962b3a_c.jpg")');
           break;
         case 1:
-          $('#svg-background').css('fill', '#99cc66');
-          $('.c-article__svg').css('backgroundImage', 'url("https://c2.staticflickr.com/8/7039/14096679536_72644c7ea0_c.jpg")');
+          this.$svg_bg.css('fill', '#99cc66');
+          this.$svg_wrap.css('backgroundImage', 'url("https://c2.staticflickr.com/8/7039/14096679536_72644c7ea0_c.jpg")');
           break;
         case 2:
-          $('#svg-background').css('fill', '#6699cc');
-          $('.c-article__svg').css('backgroundImage', 'url("https://c2.staticflickr.com/6/5527/14370696871_c3a5c186ea_c.jpg")');
+          this.$svg_bg.css('fill', '#6699cc');
+          this.$svg_wrap.css('backgroundImage', 'url("https://c2.staticflickr.com/6/5527/14370696871_c3a5c186ea_c.jpg")');
           break;
         default:
           break;
       }
-
     }
   }
 

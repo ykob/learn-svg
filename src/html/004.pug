@@ -6,12 +6,12 @@ include ./_article.pug
 +article
   p.c-article__summary
     |#{meta_description}
-  .c-article__svg(style="background-image:url('https://c2.staticflickr.com/8/7145/13663742003_2096962b3a_c.jpg')")
+  .c-article__svg#svg-wrap(style="background-image:url('https://c2.staticflickr.com/8/7145/13663742003_2096962b3a_c.jpg')")
     svg(width="100%", height="100%")
       defs
         mask#mask
           rect(
-            x="0" y="0" width="100%" height="100%",
+            x="0", y="0", width="100%", height="100%",
             fill = "white"
           )
           path(
@@ -21,7 +21,7 @@ include ./_article.pug
           )
       rect(
         id = 'svg-background',
-        x="0" y="0" width="100%" height="100%",
+        x="0", y="0", width="100%", height="100%",
         fill = "#cc6666",
         mask = "url(#mask)",
       )
