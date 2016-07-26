@@ -1,4 +1,6 @@
 import Util from '../modules/util.js';
+import force3 from '../modules/force3.js';
+console.log(force3);
 
 const glMatrix = require('gl-matrix');
 
@@ -89,30 +91,28 @@ export default function() {
     }
     render() {
       for (var i = 0; i < this.acceleration.length; i += 2) {
+        const velocity = [
+          this.velocity[i + 0],
+          this.velocity[i + 1],
+          0
+        ];
         const acceleration = [
           this.acceleration[i + 0],
-          this.acceleration[i + 1]
+          this.acceleration[i + 1],
+          0
         ];
-        const v = 0.2;
-        const drag = [
-          acceleration[0] * -1,
-          acceleration[1] * -1
+        const anchor = [
+          this.anchor[i + 0],
+          this.anchor[i + 1],
+          0
         ];
-        glMatrix.vec2.normalize(drag, drag);
-        glMatrix.vec2.scale(drag, drag, glMatrix.vec2.length(acceleration) * v);
-        const k = 0.1;
-        const hook = [
-          this.velocity[i + 0] - this.anchor[i + 0],
-          this.velocity[i + 1] - this.anchor[i + 1]
-        ];
-        const distance = glMatrix.vec2.length(hook);
-        glMatrix.vec2.normalize(hook, hook);
-        glMatrix.vec2.scale(hook, hook, -1 * k * distance);
-
-        this.acceleration[i + 0] += drag[0] + hook[0];
-        this.acceleration[i + 1] += drag[1] + hook[1];
+        force3.applyHook(velocity, acceleration, anchor, 0, 0.1);
+        force3.applyDrag(acceleration, 0.1);
+        this.acceleration[i + 0] = acceleration[0];
+        this.acceleration[i + 1] = acceleration[1];
         this.velocity[i + 0] += this.acceleration[i + 0];
         this.velocity[i + 1] += this.acceleration[i + 1];
+
       }
       const current_position = this.velocity;
       let path_str = `
