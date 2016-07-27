@@ -1,6 +1,5 @@
 import Util from '../modules/util.js';
 import force3 from '../modules/force3.js';
-console.log(force3);
 
 const glMatrix = require('gl-matrix');
 
