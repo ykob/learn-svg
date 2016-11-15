@@ -1,0 +1,19 @@
+- var meta_title = 'Gooey Background';
+- var meta_description = 'add hook function to svg path.';
+
+include ./_article.pug
+
++article
+  p.c-article__summary
+    |#{meta_description}
+  svg(
+    width = "100",
+    height = "100",
+    viewBox="0 0 100 100",
+    preserveAspectRatio="none",
+    class = "c-article__fullsize-svg"
+  )
+    path(
+      fill = "#f00",
+      d = "M 0,0 h 100 v 100 h -100 v -100 z"
+    )
